@@ -251,7 +251,7 @@ class NotificationRestorer {
          //        Some Samsung devices will throw the below exception otherwise.
          //        "java.lang.SecurityException: !@Too many alarms (500) registered"
          PendingIntent pendingIntent = PendingIntent.getService(context,
-                 RESTORE_KICKOFF_REQUEST_CODE, intentForService, PendingIntent.FLAG_UPDATE_CURRENT);
+                 RESTORE_KICKOFF_REQUEST_CODE, intentForService, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
          long scheduleTime = System.currentTimeMillis() + RESTORE_NOTIFICATIONS_DELAY_MS;
          AlarmManager alarm = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
